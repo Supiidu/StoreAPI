@@ -79,7 +79,7 @@ Criar uma Ordem:
     Acesse o endpoint POST /pedidos para criar uma ordem, associando um produto e informando os detalhes da compra.
 
 ## Modelo logico do banco de dados
-````mermaid
+```mermaid
 erDiagram
     Product {
         Long product_id PK
