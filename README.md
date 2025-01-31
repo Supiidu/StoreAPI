@@ -44,3 +44,52 @@ Antes de rodar o projeto, é necessário ter o RabbitMQ em execução. Você pod
 
 ```bash
 docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:management
+
+Acesse a interface de gerenciamento do RabbitMQ em http://localhost:15672 com o usuário guest e a senha guest.
+3. Rodando o Projeto
+
+Clone o repositório:
+
+git clone https://github.com/usuario/loja-online-simplificada.git
+cd loja-online-simplificada
+
+Para rodar o projeto, execute o comando abaixo com Maven ou Gradle:
+
+mvn spring-boot:run
+
+Ou, se estiver utilizando Gradle:
+
+./gradlew bootRun
+
+A aplicação estará disponível em http://localhost:8080.
+Endpoints da API
+Produtos
+
+    GET /produtos: Lista todos os produtos.
+    POST /produtos: Adiciona um novo produto.
+    PUT /produtos/{id}: Atualiza um produto existente.
+    DELETE /produtos/{id}: Deleta um produto.
+
+Pedidos
+
+    GET /pedidos: Lista todos os pedidos.
+    POST /pedidos: Cria um novo pedido e envia para processamento.
+
+Pagamento
+
+    POST /pagamento: Simula o pagamento de um pedido.
+
+Como Contribuir
+
+    Fork este repositório.
+    Crie uma nova branch para a sua funcionalidade.
+    Faça o commit das suas alterações.
+    Envie um Pull Request para o branch main.
+
+Licença
+
+Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+Autores
+
+    Seu Nome - Desenvolvedor
+    Nome do seu parceiro - Desenvolvedor
