@@ -47,8 +47,8 @@ Este projeto é parte de um treinamento na Accenture, com o objetivo de criar um
 
 Clone o repositório:
 
-git clone https://github.com/usuario/loja-online-simplificada.git
-cd loja-online-simplificada
+git clone https://github.com/Supiidu/SummerAcademyMS
+cd SummerAcademyMS
 
  ##  Configuração do RabbitMQ e MySQL com Docker
    
