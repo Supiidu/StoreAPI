@@ -37,7 +37,7 @@ Este projeto é parte de um treinamento na Accenture, com o objetivo de criar um
 ## Como Rodar
 
 ### 1. Pré-requisitos
-- **JDK 17** ou superior.
+- **JDK 21** ou superior.
 - **RabbitMQ** e **MySQL** instalados e em execução localmente (via Docker).
 - **Docker** instalado.
 - **WSL** (se estiver utilizando Windows).
