@@ -19,7 +19,7 @@ public class OrderController {
 	public ResponseEntity<OrderCreatedEvent> createOrder(@RequestBody Order order) {
 		OrderCreatedEvent response = orderService.createOrder(order);
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(response);  // Alternativa
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 }
 

@@ -16,7 +16,6 @@ public class RabbitMQConfig {
     public DirectExchange directExchange() {
         return new DirectExchange("order.exchange");
     }
-    // Declara a fila para cashback
     @Bean
     public Queue queueOrderStatusUpdated() {
         return new Queue("orders.v1.order-status.updated");

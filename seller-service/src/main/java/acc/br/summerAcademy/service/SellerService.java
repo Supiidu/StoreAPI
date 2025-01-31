@@ -24,9 +24,9 @@ public class SellerService {
     }
 
     public Seller deleteSeller(Long id) {
-        Seller seller = sellerRepository.findById(id) // Busca o seller
+        Seller seller = sellerRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Seller não encontrado"));
-        sellerRepository.delete(seller); // Deleta o seller
-        return seller; // Retorna o seller deletado
+        sellerRepository.delete(seller);
+        return seller;
     }
 }

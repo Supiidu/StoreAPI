@@ -23,7 +23,6 @@ public class StockConsumer {
     @RabbitListener(queues = "orders.v1.order-created")
 
     public void processOrder(Order order) {
-        // Busca o produto pelo nome
         Optional<Product> produtoOptional = productRepository.findByProductName(order.getProductName());
         if (produtoOptional.isPresent()) {
             Product product = produtoOptional.get();
@@ -38,8 +37,8 @@ public class StockConsumer {
         }
 
         rabbitTemplate.convertAndSend(
-                "order.exchange", // Exchange existente
-                "order.status.updated",          // Routing key para status atualizado
+                "order.exchange",
+                "order.status.updated",
                 order
         );
     }

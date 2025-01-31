@@ -28,6 +28,6 @@ public class RabbitMQConfig {
     public Binding bindingOrderCreatedNotification(DirectExchange directExchange) {
         return BindingBuilder.bind(queueOrderCreatedNotification())
                 .to(directExchange)
-                .with("order.created"); // Routing key corrigida
+                .with("order.created");
     }
 }

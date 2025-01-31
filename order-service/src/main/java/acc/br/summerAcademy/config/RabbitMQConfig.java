@@ -18,7 +18,6 @@ public class RabbitMQConfig {
         return new DirectExchange("orders.v1.order-created.direct");
     }
 
-    // Fila de notificação
     @Bean
     public Queue queueOrderCreatedNotification() {
         return new Queue("orders.v1.order-created");
