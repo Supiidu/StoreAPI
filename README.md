@@ -79,6 +79,7 @@ Criar uma Ordem:
     Acesse o endpoint POST /pedidos para criar uma ordem, associando um produto e informando os detalhes da compra.
 
 ## Modelo logico do banco de dados
+```
 erDiagram
     Product {
         Long product_id PK
@@ -108,7 +109,7 @@ erDiagram
 
     Product ||--o{ Order : contains
     Seller ||--o{ Order : processes
-
+```
 Licença
 
 Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
