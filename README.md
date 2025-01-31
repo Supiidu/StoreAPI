@@ -6,7 +6,7 @@ Este projeto é parte de um treinamento na Accenture, com o objetivo de criar um
 
 ## Tecnologias Utilizadas
 
-- **Java 17**
+- **Java 21**
 - **Spring Boot** (para desenvolvimento da API RESTful)
 - **RabbitMQ** (para comunicação assíncrona entre sistemas)
 - **Spring Data JPA** (para persistência de dados)
