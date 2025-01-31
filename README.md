@@ -85,8 +85,6 @@ erDiagram
         Long product_id PK
         String productName
         Long stock
-        Double price
-        String description
     }
 
     Seller {
