@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este projeto é parte de um treinamento na Accenture, com o objetivo de criar uma loja online simplificada utilizando Java Spring Boot e RabbitMQ. O sistema simula uma loja onde produtos podem ser comprados e o processo de pagamento é assíncrono. O uso do RabbitMQ é fundamental para garantir a comunicação entre diferentes partes do sistema, como o gerenciamento de pedidos e o processamento de pagamento.
+Este projeto é parte de um treinamento na Accenture, com o objetivo de criar uma loja online simplificada utilizando Java Spring Boot, RabbitMQ e MySQL. O sistema simula uma loja onde produtos podem ser comprados e o processo de pagamento é assíncrono. O uso do RabbitMQ é fundamental para garantir a comunicação entre diferentes partes do sistema, como o gerenciamento de pedidos e o processamento de pagamento.
 
 ## Tecnologias Utilizadas
 
@@ -10,8 +10,10 @@ Este projeto é parte de um treinamento na Accenture, com o objetivo de criar um
 - **Spring Boot** (para desenvolvimento da API RESTful)
 - **RabbitMQ** (para comunicação assíncrona entre sistemas)
 - **Spring Data JPA** (para persistência de dados)
-- **H2 Database** (banco de dados em memória para desenvolvimento)
+- **MySQL** (banco de dados utilizado)
 - **IntelliJ IDEA** (IDE utilizada para o desenvolvimento)
+- **Docker** (para rodar o RabbitMQ e o MySQL)
+- **WSL** (se estiver utilizando Windows)
 
 ## Funcionalidades
 
@@ -27,69 +29,93 @@ Este projeto é parte de um treinamento na Accenture, com o objetivo de criar um
   - **models**: Define os modelos de dados como Produto, Pedido e Pagamento.
   - **repositories**: Interfaces para acessar o banco de dados.
   - **services**: Lógica de negócios, incluindo interação com o RabbitMQ.
-  - **configurations**: Configuração do RabbitMQ e do Spring Boot.
+  - **configurations**: Configuração do RabbitMQ, MySQL e do Spring Boot.
   
 - **src/main/resources**:
-  - **application.properties**: Configurações do Spring Boot e RabbitMQ.
+  - **application.properties**: Configurações do Spring Boot, RabbitMQ e MySQL.
 
 ## Como Rodar
 
 ### 1. Pré-requisitos
 - **JDK 17** ou superior.
-- **RabbitMQ** instalado e em execução localmente.
+- **RabbitMQ** e **MySQL** instalados e em execução localmente (via Docker).
+- **Docker** instalado.
+- **WSL** (se estiver utilizando Windows).
 - **Maven** ou **Gradle** (dependendo da sua preferência para gerenciar dependências).
 
-### 2. Configuração do RabbitMQ
-Antes de rodar o projeto, é necessário ter o RabbitMQ em execução. Você pode iniciar o RabbitMQ com o Docker:
-
-```bash
-docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:management
-
-Acesse a interface de gerenciamento do RabbitMQ em http://localhost:15672 com o usuário guest e a senha guest.
-3. Rodando o Projeto
+### 2. Rodando o Projeto
 
 Clone o repositório:
 
 git clone https://github.com/usuario/loja-online-simplificada.git
 cd loja-online-simplificada
 
-Para rodar o projeto, execute o comando abaixo com Maven ou Gradle:
+ ##  Configuração do RabbitMQ e MySQL com Docker
+   
+Antes de rodar o projeto, é necessário ter o RabbitMQ e o MySQL em execução. Você pode iniciar ambos com o Docker utilizando o seguinte comando:
 
-mvn spring-boot:run
+```bash
+docker-compose up -d
 
-Ou, se estiver utilizando Gradle:
+docker-compose.yml:
+```
 
-./gradlew bootRun
+Acesse a interface de gerenciamento do RabbitMQ em http://localhost:15672 com o usuário guest e a senha guest. O MySQL estará disponível em localhost:8000.
 
-A aplicação estará disponível em http://localhost:8080.
+A aplicação estará disponível nas portas http://localhost:8080, http://localhost:8081, http://localhost:8082, http://localhost:8083 e http://localhost:8084.
 Endpoints da API
-Produtos
 
-    GET /produtos: Lista todos os produtos.
-    POST /produtos: Adiciona um novo produto.
-    PUT /produtos/{id}: Atualiza um produto existente.
-    DELETE /produtos/{id}: Deleta um produto.
+## Como Usar
+Criar um Produto:
 
-Pedidos
+    Acesse o endpoint POST /produtos para criar um novo produto, fornecendo nome, descrição, preço e estoque.
 
-    GET /pedidos: Lista todos os pedidos.
-    POST /pedidos: Cria um novo pedido e envia para processamento.
+Criar uma Loja:
 
-Pagamento
+    Acesse o endpoint POST /lojas para criar sua loja, incluindo nome, descrição e localização.
 
-    POST /pagamento: Simula o pagamento de um pedido.
+Criar uma Ordem:
 
-Como Contribuir
+    Acesse o endpoint POST /pedidos para criar uma ordem, associando um produto e informando os detalhes da compra.
 
-    Fork este repositório.
-    Crie uma nova branch para a sua funcionalidade.
-    Faça o commit das suas alterações.
-    Envie um Pull Request para o branch main.
+## Modelo logico do banco de dados
+erDiagram
+    Product {
+        Long product_id PK
+        String productName
+        Long stock
+        Double price
+        String description
+    }
+
+    Seller {
+        Long Loja_id PK
+        String Loja_Estado
+    }
+
+    Order {
+        Long Order_ID PK
+        String productName
+        String description
+        BigDecimal value
+        Integer quantity
+        LocalDateTime dateTimeDeparture
+        TypeOfStatus status
+        Long Loja_id FK
+        LocalDateTime createdAt
+        LocalDateTime updatedAt
+    }
+
+    Product ||--o{ Order : contains
+    Seller ||--o{ Order : processes
 
 Licença
 
 Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+
 Autores
 
-    Seu Nome - Desenvolvedor
-    Nome do seu parceiro - Desenvolvedor
+    Matheus Henrique Ferreira - Desenvolvedor
+    Ailton Neto - Desenvolvedor
+
+Se tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou enviar um pull request!
