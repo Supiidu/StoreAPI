@@ -1,4 +1,4 @@
-# Loja Online Simplificada - Projeto de Treinamento
+# Loja Online Simplificada
 
 ## Descrição
 
