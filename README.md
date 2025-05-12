@@ -47,9 +47,10 @@ loja online simplificada utilizando Java Spring Boot, RabbitMQ e MySQL. O sistem
 
 Clone o repositório:
 
-git clone https://github.com/Supiidu/StoreAPI 
-cd SummerAcademyMS
-
+```bash
+git clone https://github.com/Supiidu/StoreAPI  
+cd StoreAPI
+````
  ##  Configuração do RabbitMQ e MySQL com Docker
    
 Antes de rodar o projeto, é necessário ter o RabbitMQ e o MySQL em execução. Você pode iniciar ambos com o Docker utilizando o seguinte comando:
