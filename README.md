@@ -47,7 +47,7 @@ loja online simplificada utilizando Java Spring Boot, RabbitMQ e MySQL. O sistem
 
 Clone o repositório:
 
-git clone https://github.com/Supiidu/SummerAcademyMS
+git clone https://github.com/Supiidu/StoreAPI 
 cd SummerAcademyMS
 
  ##  Configuração do RabbitMQ e MySQL com Docker
